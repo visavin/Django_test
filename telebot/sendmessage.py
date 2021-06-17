@@ -2,11 +2,6 @@ import requests
 from .models import TeleSettings
 
 
-# token = '318363348:AAGUJSj6tVLGdSYsQcB3hS0vA1VDvkRBo0s'
-# chat_id = '206792212'
-# text = 'Test'
-
-
 def sendTelegram(tg_name, tg_phone):
     if TeleSettings.objects.get(pk=1):
         settings = TeleSettings.objects.get(pk=1)
@@ -16,7 +11,7 @@ def sendTelegram(tg_name, tg_phone):
 
         if text.find('{') and text.find('}') and text.rfind('{') and text.rfind('}'):
             part_1 = text[0:text.find('{')]
-            part_2 = text[text.find('}')+1:text.rfind('{')]
+            part_2 = text[text.find('}') + 1:text.rfind('{')]
             part_3 = text[text.rfind('}'):-1]
             text_slice = part_1 + tg_name + part_2 + tg_phone + part_3
         else:
@@ -41,6 +36,5 @@ def sendTelegram(tg_name, tg_phone):
 
     else:
         pass
-
 
 # sendTelegram()

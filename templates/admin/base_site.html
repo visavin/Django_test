@@ -1,0 +1,49 @@
+{% extends "admin/base.html" %}
+{% load static %}
+<link href="{% static 'external.css' %}" rel="stylesheet">
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrastyle %}
+
+<style>
+
+:root {
+    --primary: #2f99ce;
+}
+
+body {
+    background: #e8e8e8;
+}
+
+h1 {
+    color: #ba2121;
+}
+
+#header {
+    background: #2f99ce;
+}
+
+#branding {
+    width: 50%;
+}
+
+#site-name  {
+    float: left;
+}
+
+</style>
+
+{% endblock %}
+
+{% block branding %}
+
+<a class="logo-top" href="#">
+    <img src="{% static 'img/Logo.png' %}" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
+    Brand Name
+</a>
+
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Административная панель</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
