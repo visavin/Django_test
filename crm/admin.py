@@ -26,4 +26,4 @@ class OrderAdm(admin.ModelAdmin):
 
 admin.site.register(Order, OrderAdm)
 admin.site.register(StatusCrm)
-admin.site.register(CommentCrm)
+# admin.site.register(CommentCrm)
